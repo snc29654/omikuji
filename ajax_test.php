@@ -2,7 +2,7 @@
 
   $ran=rand(0,9);
 
-  sleep (8);
+  sleep (5);
 
   if($ran==0){
     $id1="出会いがあります";
