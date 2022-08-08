@@ -1,20 +1,20 @@
 <?php
 // ファイル
-$ran=rand(0,4);
+$ran=rand(0,8);
 if($ran==0){
-    $file_name = './0.jpg';  //仮に同一フォルダに「img1.jpg」の画像ファイルを置く
+    $file_name = './0.jpg';  //大吉
 }
-if($ran==1){
-    $file_name = './1.jpg';  //仮に同一フォルダに「img1.jpg」の画像ファイルを置く
+if(($ran==1)||($ran==2)){
+    $file_name = './1.jpg';  //吉
 }
-if($ran==2){
-    $file_name = './2.jpg';  //仮に同一フォルダに「img1.jpg」の画像ファイルを置く
+if(($ran==3)||($ran==4)||($ran==5)||($ran==6)){
+    $file_name = './2.jpg';  //小吉
 }
-if($ran==3){
-    $file_name = './3.jpg';  //仮に同一フォルダに「img1.jpg」の画像ファイルを置く
+if($ran==7){
+    $file_name = './3.jpg';  //凶
 }
-if($ran==4){
-    $file_name = './4.jpg';  //仮に同一フォルダに「img1.jpg」の画像ファイルを置く
+if($ran==8){
+    $file_name = './4.jpg';  //大凶
 }
 
 
