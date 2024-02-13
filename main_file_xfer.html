@@ -26,26 +26,6 @@ function drawImage(imageFile) {
     return false;
 }
 
-function drawImage2(imageFile) {
-    var canvas = $("#canvas");
-    var ctx = canvas[0].getContext("2d");
-    //イメージオブジェクト
-    var img1 = new Image();
-    //画像ファイル指定でファイル読込開始
-    img1.src = imageFile;
- 
-    //画像ロード後に画像を描画できる。
-    img1.onload = function(){
-        //画像の大きさを設定
-        width  = img1.width;
-        height = img1.height;
-        canvas.attr('width' , width);
-        canvas.attr('height', height);
-        //画像を描画
-        ctx.drawImage(img1, 0, 0, width, height);
-    }
-    return false;
-}
 
 // Base64とMIMEタイプからBlobオブジェクト作成
 function toBlob(base64, mimetype) {
@@ -76,6 +56,7 @@ $(function() {
       , data: ""
     }).done(function(res){
         // ajaxがOK
+        alert(res);
         var data = JSON.parse(res);
         // blobデータ生成
         var blob = toBlob(data.img, data.type);
@@ -98,32 +79,6 @@ $(function() {
     });
 
     
-    $.ajax({
-        type: "POST"
-      , url:  "./imagedown2.php"
-      , data: ""
-    }).done(function(res){
-        // ajaxがOK
-        var data = JSON.parse(res);
-        // blobデータ生成
-        var blob = toBlob(data.img, data.type);
- 
-        //FileReader API
-        var reader = new FileReader();
-        //ファイルロード終了時イベント宣言
-        reader.onload = function(e) {
-            //画像表示関数コール
-            drawImage2(e.target.result);
-        };
-        //Blobデータ読込の開始
-        reader.readAsDataURL(blob);
- 
-    }).fail(function(XMLHttpRequest, textStatus, error) {
-        // 取得エラー
-        alert(error);
-    }).always(function() {
-        // 後処理(処理することが在れば)
-    });
 
 });
 });

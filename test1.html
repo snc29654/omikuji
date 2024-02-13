@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="<?php echo image_base64(); ?>">
+    <?php
+      function image_base64( ){
+        $image_type = 'data:image/jpeg;';
+        return $image_type.  base64_encode(file_get_contents('./jpg/0.jpg'));
+      }
+    ?></body>
+</html>
