@@ -7,11 +7,11 @@
 //ページロード時イベント
 $(function() {
     $("#button").click(function(event){
-
+      var target = $('.target').val();
       $.ajax({
       type: "POST",
       url: "base64.php",
-      data: { key: "44OA44Kk44Ko44OD44OI44GM5Yq55p6c44KS6KGo44GX44G+44GZ" 
+      data: { key:  target 
       },
       dataType : "text"
     }).done(function(data){
@@ -26,9 +26,9 @@ $(function() {
 </script>
 </head>
 <body>
-    <h2>base64 test</h2>
+    <h2>decode base64 </h2>
     <button id="button">実行</button><br>
-    <input type="hidden" id="test1" name="text1" size="5" value=""><br>
+    <input type="text" name="hoge" size="80" value="44OA44Kk44Ko44OD44OI44GM5Yq55p6c44KS6KGo44GX44G+44GZ" data-target="fuga" id="input-1" class="target"><br>
     <div  id="result"></div>
     <br />
 </body>
