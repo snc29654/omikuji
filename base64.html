@@ -1,28 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="ajax.js"></script>
-  <title>IDをチェックし、合致すればファイルを表示するフォーム</title>
+<meta charset="utf-8">
+<title>test canvas</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+//ページロード時イベント
+$(function() {
+    $("#button").click(function(event){
+
+      $.ajax({
+      type: "POST",
+      url: "base64.php",
+      data: { key: "44OA44Kk44Ko44OD44OI44GM5Yq55p6c44KS6KGo44GX44G+44GZ" 
+      },
+      dataType : "text"
+    }).done(function(data){
+      $("#result").text(data);
+    }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+      alert(errorThrown);
+    });
+
+
+});
+});
+</script>
 </head>
 <body>
-  <div>
-    <form method="post">
-      <h1>入力フォーム</h1>
-
-      <div class="">
-        <label>ID</label>
-        <input type="text" class="" id="" />
-      </div>
-
-      <button type="button" class="" id="sub">送信</button>
-    </form>
-
-    <div id="info"></div>
-  </div>
+    <h2>base64 test</h2>
+    <button id="button">実行</button><br>
+    <input type="hidden" id="test1" name="text1" size="5" value=""><br>
+    <div  id="result"></div>
+    <br />
 </body>
 </html>
