@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>input to out</title>
+</head>
+<body>
+
+  <input id="text0" type="text" size="50" value="" />
+  <input type="button" value="送信" onclick="inData0()" /><br>
+  <div id="outdata0"></div>
+  <input id="text1" type="text" size="50" value="" />
+  <input type="button" value="送信" onclick="inData1()" />
+  <div id="outdata1"></div>
+  
+<script>
+
+  function inData0() {
+    text = document.getElementById("text0");
+
+    indataText = btoa(unescape(encodeURIComponent(text.value)));
+
+    outdata0.innerText = indataText;
+  }
+
+  function inData1() {
+    text = document.getElementById("text1");
+    indataText = decodeURIComponent(escape(atob(text.value)));
+
+    outdata1.innerText = indataText;
+  }
+
+
+
+</script>
+</body>
+</html>
