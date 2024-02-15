@@ -6,31 +6,24 @@
 </head>
 <body>
 
-  <input id="text0" type="text" size="80" value="ダイエットが効果を表します" />
-  <input type="button" value="送信" onclick="inData0()" /><br>
+  <input id="text0" type="text" size="80" value="あいうえお" />
+  <input type="button" value="送信0" onclick="inData0()" /><br>
   <div id="outdata0"></div>
-  <input id="text1" type="text" size="80" value="44OA44Kk44Ko44OD44OI44GM5Yq55p6c44KS6KGo44GX44G+44GZ" />
-  <input type="button" value="送信" onclick="inData1()" />
+  <input id="text1" type="text" size="80" value="abcdefgh" />
+  <input type="button" value="送信1" onclick="inData1()" />
   <div id="outdata1"></div>
   
 <script>
 
   function inData0() {
     text = document.getElementById("text0");
-
-    indataText = btoa(unescape(encodeURIComponent(text.value)));
-
     text1.value=text.value;
   }
 
   function inData1() {
     text = document.getElementById("text1");
-    indataText = decodeURIComponent(escape(atob(text.value)));
-
     text0.value=text.value;
   }
-
-
 
 </script>
 </body>
