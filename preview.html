@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+
+<input type="file" accept='image/*' multiple="multiple" onchange="preview(this);">
+
+<div id="preview"></div>
+
+<script>
+function preview(obj){
+    for (i = 0; i < obj.files.length; i++) {
+        var fileReader = new FileReader();
+        fileReader.onload = (function (e) {
+            document.getElementById('preview').innerHTML += '<img src="' + e.target.result + '"width=100px>';
+        });
+        fileReader.readAsDataURL(obj.files[i]);
+    }
+}
+</script>
+
+</body>
+</html>
