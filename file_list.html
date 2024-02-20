@@ -21,9 +21,7 @@ function butotnClick(){
   let files = fileBox.files;
 
   for(let i = 0 ; i < files.length ; i++){
-    document.write((i + 1) + '番目のファイル');
-    document.write('<br>');
-    document.write('name: ' + files[i].name);
+    document.write("<img src="+files[i].name+">");
     document.write('<br>');
 }
 }
