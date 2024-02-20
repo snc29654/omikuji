@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>サンプル</title>
+</head>
+<body>
+
+<p>サンプルページです。</p>
+
+<div>
+<input type="file" id="fileBox" multiple >
+</div>
+
+<div>
+<input type="button" value="Check" id="checkButton">
+</div>
+
+<script>
+function butotnClick(){
+  let files = fileBox.files;
+
+  for(let i = 0 ; i < files.length ; i++){
+    document.write((i + 1) + '番目のファイル');
+    document.write('<br>');
+    document.write('name: ' + files[i].name);
+    document.write('<br>');
+}
+}
+
+let fileBox = document.getElementById('fileBox');
+
+let checkButton = document.getElementById('checkButton');
+checkButton.addEventListener('click', butotnClick);
+</script>
+
+</body>
+</html>
