@@ -16,15 +16,45 @@
 <input type="button" value="Check" id="checkButton">
 </div>
 
+<div>
+  <img id = "pic" src = ""  width = 30% height = 30%  >
+</div>
+
+
 <script>
-function butotnClick(){
+
+  const img = [
+  "jpg/0.jpg",
+  "jpg/1.jpg",
+  ];
+let count = -1;
+
+jpgChange();
+
+function jpgChange()
+{
+  count++;
+  if (count == img.length) count = 0;
+  pic.src = img[count];
+setTimeout("jpgChange()",1000);
+}
+
+
+
+
+  function butotnClick(){
   let files = fileBox.files;
 
   for(let i = 0 ; i < files.length ; i++){
-    document.write("<img src="+files[i].name+">");
-    document.write('<br>');
+    img[i]=files[i].name;
+  }
+
+
 }
-}
+
+
+
+
 
 let fileBox = document.getElementById('fileBox');
 
