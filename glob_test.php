@@ -12,7 +12,8 @@
 $files = glob('../jpg/*.jpg');
 
 foreach ($files as $key => $value) {
-	echo $value . '<br>';
+	echo '<img src='.$value . ' width=300px>';
+    echo $value.'<br>';
 }
 ?>
 </body>
