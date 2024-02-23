@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>サンプル</title>
+</head>
+<body>
+
+<p>スライド</p>
+
+
+<div>
+  <img id = "pic" src = ""  width = 30% height = 30%  >
+</div>
+
+
+<script>
+
+  const img = [
+  "http://snc29654.php.xdomain.jp/jpg/3.jpg",
+  "http://snc29654.php.xdomain.jp/jpg/30.jpg",
+  "http://snc29654.php.xdomain.jp/jpg/19.jpg",
+  ];
+let count = -1;
+
+jpgChange();
+
+function jpgChange()
+{
+  count++;
+  if (count == img.length) count = 0;
+  pic.src = img[count];
+setTimeout("jpgChange()",1000);
+}
+
+
+</script>
+
+</body>
+</html>
