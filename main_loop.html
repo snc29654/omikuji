@@ -7,17 +7,18 @@
     <script>
         function get_text() {
             $.ajax({
-                url: 'http://codecamp.lesson.codecamp.jp/javascript/ajax.txt',
+                url: "loop_test.php",
                 async: true,
                 success: function(data) {
               console.log("======>succes");
                     document.write(data);
+                    document.write("<br>");
                 }
             });
         }
         $(document).ready(function() {
             console.log("======>interval in");
-            setInterval(get_text, 5000);
+            setInterval(get_text, 1000);
         });
     </script>
 </head>
