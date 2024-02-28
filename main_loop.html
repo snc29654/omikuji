@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        function get_text() {
+            $.ajax({
+                url: 'http://codecamp.lesson.codecamp.jp/javascript/ajax.txt',
+                async: true,
+                success: function(data) {
+              console.log("======>succes");
+                    document.write(data);
+                }
+            });
+        }
+        $(document).ready(function() {
+            console.log("======>interval in");
+            setInterval(get_text, 5000);
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
