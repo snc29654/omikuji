@@ -2,15 +2,10 @@
 // ファイル
 
 $files = glob('../jpg/*.jpg');
-$imax=0;
-foreach ($files as $key => $value) {
-    
-    $imax++;
-}
+$imax=count($files)-1;
 
 
 $ran=rand(0,$imax);
-$files = glob('../jpg/*.jpg');
 $i=0;
 foreach ($files as $key => $value) {
     
