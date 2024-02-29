@@ -1,20 +1,24 @@
 <?php
 // ファイル
-$ran=rand(0,8);
-if($ran==0){
-    $file_name = './jpg/0.jpg';  //大吉
+
+$files = glob('../jpg/*.jpg');
+$imax=0;
+foreach ($files as $key => $value) {
+    
+    $imax++;
 }
-if(($ran==1)||($ran==2)){
-    $file_name = './jpg/1.jpg';  //吉
-}
-if(($ran==3)||($ran==4)||($ran==5)||($ran==6)){
-    $file_name = './jpg/2.jpg';  //小吉
-}
-if($ran==7){
-    $file_name = './jpg/3.jpg';  //凶
-}
-if($ran==8){
-    $file_name = './jpg/4.jpg';  //大凶
+
+
+$ran=rand(0,$imax);
+$files = glob('../jpg/*.jpg');
+$i=0;
+foreach ($files as $key => $value) {
+    
+    if($i==$ran){
+        $file_name=$value;
+        break;
+    }
+    $i++;
 }
 
 
