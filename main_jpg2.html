@@ -5,7 +5,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 //Image関数
-function drawImage3(imageFile) {
+function drawone(imageFile) {
     var canvas = $("#canvas2");
     var ctx = canvas[0].getContext("2d");
     //イメージオブジェクト
@@ -16,8 +16,8 @@ function drawImage3(imageFile) {
     //画像ロード後に画像を描画できる。
     img1.onload = function(){
         //画像の大きさを設定
-        width  = img1.width/4;
-        height = img1.height/4;
+        width  = img1.width/6;
+        height = img1.height/6;
         canvas.attr('width' , width);
         canvas.attr('height', height);
         //画像を描画
@@ -26,7 +26,7 @@ function drawImage3(imageFile) {
     return false;
 }
 
-function drawImage2(imageFile) {
+function drawloop(imageFile) {
     var canvas = $("#canvas");
     var ctx = canvas[0].getContext("2d");
     //イメージオブジェクト
@@ -73,7 +73,7 @@ $(function() {
     function get_text() {
         $.ajax({
         type: "POST"
-        , url:  "./imagedown3.php"
+        , url:  "./jpgdown.php"
         , data: ""
         }).done(function(res){
             // ajaxがOK
@@ -86,7 +86,7 @@ $(function() {
             //ファイルロード終了時イベント宣言
             reader.onload = function(e) {
                 //画像表示関数コール
-                drawImage2(e.target.result);
+                drawloop(e.target.result);
             };
             //Blobデータ読込の開始
             reader.readAsDataURL(blob);
@@ -116,7 +116,7 @@ $("#button2").click(function(event){
 
         $.ajax({
         type: "POST"
-        , url:  "./imagedown3.php"
+        , url:  "./jpgdown.php"
         , data: ""
         }).done(function(res){
             // ajaxがOK
@@ -129,7 +129,7 @@ $("#button2").click(function(event){
             //ファイルロード終了時イベント宣言
             reader.onload = function(e) {
                 //画像表示関数コール
-                drawImage3(e.target.result);
+                drawone(e.target.result);
             };
             //Blobデータ読込の開始
             reader.readAsDataURL(blob);

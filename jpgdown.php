@@ -1,7 +1,7 @@
 <?php
 // ファイル
 
-$files = glob('../jpg/*.jpg');
+$files = glob('./jpg/*.jpg');
 $imax=count($files)-1;
 
 
