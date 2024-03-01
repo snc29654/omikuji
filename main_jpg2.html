@@ -16,8 +16,8 @@ function drawImage3(imageFile) {
     //画像ロード後に画像を描画できる。
     img1.onload = function(){
         //画像の大きさを設定
-        width  = img1.width;
-        height = img1.height;
+        width  = img1.width/4;
+        height = img1.height/4;
         canvas.attr('width' , width);
         canvas.attr('height', height);
         //画像を描画
@@ -114,10 +114,9 @@ $("#button2").click(function(event){
     num1 = Number(test1.value);
 
 
-    function get_text2() {
         $.ajax({
         type: "POST"
-        , url:  "./imagedown2.php"
+        , url:  "./imagedown3.php"
         , data: ""
         }).done(function(res){
             // ajaxがOK
@@ -141,12 +140,6 @@ $("#button2").click(function(event){
         }).always(function() {
             // 後処理(処理することが在れば)
         });
-        }
-
-    $(document).ready(function() {
-        console.log("======>interval in");
-        setInterval(get_text2, 5000);
-    });
 
 
 
@@ -163,8 +156,8 @@ $("#button2").click(function(event){
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <body>
     <h2>ajax スライドショー</h2>
-    <button id="button">実行</button><br>
-    <button id="button2">実行2</button><br>
+    <button id="button">スライドショー実行</button>
+    <button id="button2">単独表示</button><br>
     <input type="hidden" id="test1" name="text1" size="5" value=""><br>
     <div style="background-color:rgb(238, 255, 0)  ;color:blue;font-size: 50px;" id="result"></div>
     <br />
