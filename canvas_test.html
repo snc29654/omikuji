@@ -1,0 +1,28 @@
+<html>
+<body>
+<canvas id="canvas"></canvas>
+</body>
+<script>
+    const canvas = document.getElementById("canvas");        
+    let imagePath = "jpg/0.jpg";
+    draw(canvas,imagePath);
+
+    function draw(canvas,imagePath){
+        const image = new Image();
+        image.addEventListener("load",function (){
+
+            canvas.width = image.naturalWidth;
+            canvas.height = image.naturalHeight;
+            const ctx = canvas.getContext("2d");
+
+            ctx.drawImage(image, 0,0,canvas.width,canvas.height,
+            0,0,canvas.width/6,canvas.height/6 );
+
+            ctx.drawImage(image, 0,0,canvas.width,canvas.height,
+            200,200,canvas.width/6,canvas.height/6 );
+
+        });
+        image.src = imagePath;
+    }
+    </script>
+</html>
