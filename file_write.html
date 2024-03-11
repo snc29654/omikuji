@@ -1,23 +1,49 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
 
-<head>
-<meta charset="utf-8">
-<title>Read & Write Local File</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="script.js"></script>
-</head>
-<body>
-<div id="container">
-<main>
-    <div>
-        <p id="message"></p>
-        <input id="save" type="button" value="Save">
-        <input id="load" type="button" value="Load">
-    </div>
-    <textarea id="log">
-    </textarea>
-</main>
-</div>
+    <label>ファイル書き込みテスト</label>
+    <input type="text" id="call" value="初期値" onchange="textchange()" >
+    <br />
+    <br />
+    <div id="message_a"></div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script language="javascript" type="text/javascript">
+      // イベントハンドラー
+      function textchange() {
+        var call = document.getElementById("call").value;
+
+        var message = "";
+          message = call.toUpperCase();
+        document.getElementById("message_a").innerHTML = message;
+        download_txt("test.txt", message);
+      }
+
+      // イベントハンドラーを対応付ける
+      document.getElementById("call").onchange = textchange;
+
+    
+
+    
+    function download_txt(file_name, data) {
+    
+            const blob = new Blob([data], {type: 'text/plain'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            document.body.appendChild(a);
+            a.download = file_name;
+            a.href = url;
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+    
+        }
+</script>
+
+
 </body>
 </html>
