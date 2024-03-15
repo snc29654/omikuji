@@ -18,9 +18,8 @@
               // 取得に成功したときの処理
               success:function(data){
                 console.log(JSON.stringify(data, null, 2));
-                const publishingOffice = data.text; //data.キー名で値を参照
-                console.log(publishingOffice);
-                $(".output2").html("<p>"+publishingOffice+"</p>");
+                const data_text = data.text; //data.キー名で値を参照
+                $(".output2").html("<p>"+data_text+"</p>");
               },
               // 完了したときの処理
               complete:function(){
