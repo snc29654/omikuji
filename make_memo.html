@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>localStorageのテスト</title>
+    </head>
+    <body>
+        <h1>localStorageのテスト</h1>
+        <input id="text1" type="text" value="1234"><br>
+        <input id="text2" type="text" value="....">
+        <p>
+            
+            <input type="button" value="書き込み" onclick="save()" >
+            <input type="button" value="読み出し" onclick="load()" >
+        </p>
+            <script type="text/javascript">
+                function load() {
+                    var storageData = "";
+                    if(!localStorage.getItem('storageData')) {
+                        storageData = "空";
+                    } else {
+                        storageData = localStorage.getItem('storageData');
+                    }
+                    document.getElementById('text2').value=storageData;
+                }
+                function save() {
+                    var storageData = document.getElementById('text1').value;
+                    localStorage.setItem('storageData', storageData);
+                }
+            </script>
+        </body>
+</html>
