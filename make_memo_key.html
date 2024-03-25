@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>localStorageのテスト</title>
+    </head>
+    <body>
+        <h1>localStorageのテスト key付き</h1>
+        <input type="button" value="書き込み" onclick="save()" >
+        key<input id="key0" type="text" value="initial_key">
+        data<input id="text1" type="text" value="1234"><br>
+            
+            <input type="button" value="読み出し" onclick="load()" >
+        out<input id="text2" type="text" value="....">
+            <script type="text/javascript">
+                function load() {
+                    var keyData = document.getElementById('key0').value;
+                    var storageData = "";
+                    if(!localStorage.getItem(keyData)) {
+                        storageData = "空";
+                    } else {
+                        storageData = localStorage.getItem(keyData);
+                    }
+                    document.getElementById('text2').value=storageData;
+                }
+                function save() {
+                    var keyData = document.getElementById('key0').value;
+                    var storageData = document.getElementById('text1').value;
+                    localStorage.setItem(keyData, storageData);
+                }
+            </script>
+        </body>
+</html>
