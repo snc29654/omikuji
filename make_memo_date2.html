@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>localStorageの日記 2つのtext</title>
+    </head>
+    <body>
+        <h1>localStorageの日記 2つのtext</h1>
+        <input type="date" id="date0" value="" onchange="load()"><br>
+
+        <input type="button" value="書き込み" onclick="save()" ><br>
+        <textarea name="example2" id="text1"  value=""  cols="50" rows="10"></textarea><br>
+        <textarea name="example3" id="text2"  value=""  cols="50" rows="10"></textarea>
+
+            
+            <script type="text/javascript">
+                function load() {
+                    var keyData = document.getElementById('date0').value;
+                    var storageData = "";
+                    if(!localStorage.getItem(keyData)) {
+                        storageData = "空";
+                    } else {
+                        storageData = localStorage.getItem(keyData);
+                    }
+                    document.getElementById('text1').value=storageData;
+
+                    var keyData2 = keyData+"next";
+
+                    if(!localStorage.getItem(keyData2)) {
+                        storageData2 = "空";
+                    } else {
+                        storageData2 = localStorage.getItem(keyData2);
+                    }
+                    document.getElementById('text2').value=storageData2;
+
+                }
+                function save() {
+                    var keyData = document.getElementById('date0').value;
+                    var storageData = document.getElementById('text1').value;
+                    localStorage.setItem(keyData, storageData);
+
+                    var keyData2 = keyData+"next";
+                    var storageData2 = document.getElementById('text2').value;
+                    localStorage.setItem(keyData2, storageData2);
+
+                }
+            </script>
+        </body>
+</html>
