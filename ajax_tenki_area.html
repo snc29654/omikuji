@@ -2,11 +2,22 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Ajax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>各地の天気</title>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <body>
-  <label for="area">地域を選択してください</label>
+<script type="text/javascript" src="https://ad.xdomain.ne.jp/js/server-php.js"></script>
+
+
+<div class="paper0">
+  <p id="name">天気</p>
+</div>
+<div class="paper1">
+  <p id="name">予報</p>
+</div>
+
+<label for="area">地域を選択してください</label>
 <select id="area">
   <option value="020000">青森県</option>	 
   <option value="050000">秋田県</option>	 
@@ -59,7 +70,10 @@
 <input type="button" value="予報を見る" onclick="checkButton()">
 </div>
 
-    <p class= "output2"></p>
+    
+
+　　<textarea name="comment" class= "output2" cols="60" rows="30"></textarea>
+</p>
 <script>
     function checkButton(){
     $(function(){
@@ -72,7 +86,7 @@
               success:function(data){
                 console.log(JSON.stringify(data, null, 2));
                 const data_text = data.text; //data.キー名で値を参照
-                $(".output2").html("<p>"+data_text+"</p>");
+                $(".output2").html(data_text);
               },
               // 完了したときの処理
               complete:function(){
@@ -86,5 +100,79 @@
           });
           };
         </script>
+
+<style>
+
+.output2 {
+	background-color: lightblue;
+}
+
+#name{
+        font-size: 50px;
+        color: chartreuse;
+      }
+      @keyframes paper0 {
+        0% {
+          background: rgb(43, 226, 119);
+          top: 0%;
+          transform: translateX(0) rotateX(0) rotateY(0);
+        }
+  
+        100% {
+          background: rgb(226, 43, 58);
+          
+          top: 60%;
+          transform: translateX(20px) rotateX(180deg) rotateY(360deg);
+        }
+      }
+  
+  
+      .paper0{
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100px;
+        height: 200px;
+        left: 0%;
+        background: rgb(55, 0, 255);
+        animation-duration: 3s;
+        animation-delay: 0s;
+        animation: paper0 3s 0s linear infinite;
+      }
+
+      @keyframes paper1 {
+        0% {
+          background: rgb(70, 43, 226);
+          top: 0%;
+          transform: translateX(0) rotateX(0) rotateY(0);
+        }
+  
+        100% {
+          background: rgb(214, 226, 43);
+          
+          top: 60%;
+          transform: translateX(420px) rotateX(80deg) rotateY(260deg);
+        }
+      }
+  
+  
+      .paper1{
+        position: absolute;
+        top: -100%;
+        left: 100px;
+        width: 100px;
+        height: 200px;
+        left: 0%;
+        background: rgb(55, 0, 255);
+        animation-duration: 3s;
+        animation-delay: 0s;
+        animation: paper1 3s 0s linear infinite;
+      }
+
+
+
+</style>
+
+
 </body>
 </html>
